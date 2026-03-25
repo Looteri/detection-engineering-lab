@@ -1,0 +1,20 @@
+title: SSH Brute Force - Multiple Failed Logins
+id: 6cee82cb-aec2-49fc-b13e-d0dc5145a7a8
+status: experimental
+description: Detects multiple SSH login failures from single source within 1 minute
+references:
+  - https://attack.mitre.org/techniques/T1110/001/
+logsource:
+  product: cowrie
+  service: ssh
+detection:
+  selection:
+    eventid: 'cowrie.login.failed'
+  timeframe: 1m
+  condition: selection | count() by src_ip > 5
+falsepositives:
+  - Legitimate admin mistyping password
+level: medium
+tags:
+  - attack.credential_access
+  - attack.t1110.001
