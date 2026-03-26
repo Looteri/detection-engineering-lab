@@ -1,0 +1,34 @@
+title: Nmap SYN Port Sweep - Stealth Scan Detection
+id: 55e442c4-edf7-460a-9acc-6307ba4753eb
+status: experimental
+description: >
+  Detects SYN-based port sweep activity from a single source to multiple
+  destination ports. Catches stealth Nmap scans (-sS) that evade
+  User-Agent signature detection.
+references:
+  - https://attack.mitre.org/techniques/T1046/
+  - https://nmap.org/book/man-bypass-firewalls-ids.html
+logsource:
+  product: suricata
+  service: ids
+detection:
+  selection:
+    event_type: 'alert'
+    alert.signature|contains:
+      - 'ET SCAN'
+      - 'Behavioral Unusual Port'
+      - 'Nmap'
+  timeframe: 60s
+  condition: selection | count(dest_port) by src_ip > 15
+falsepositives:
+  - Legitimate vulnerability scanners (Nessus, Qualys) in authorized scans
+  - Network monitoring tools performing service discovery
+level: medium
+tags:
+  - attack.discovery
+  - attack.t1046
+fields:
+  - src_ip
+  - dest_ip
+  - dest_port
+  - alert.signature
