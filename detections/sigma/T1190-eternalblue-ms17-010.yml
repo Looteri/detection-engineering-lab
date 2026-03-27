@@ -1,0 +1,35 @@
+title: EternalBlue MS17-010 Exploit Attempt Detection
+id: bce326a2-64b4-443a-b733-6549cbcb1d59
+status: experimental
+description: >
+  Detects EternalBlue (MS17-010) and DoublePulsar exploit attempts
+  based on Suricata IDS signatures. Covers both Metasploit-style
+  and generic flag-based probes.
+references:
+  - https://attack.mitre.org/techniques/T1190/
+  - https://nvd.nist.gov/vuln/detail/CVE-2017-0144
+logsource:
+  product: suricata
+  service: ids
+detection:
+  selection:
+    alert.signature|contains:
+      - 'ETERNALBLUE'
+      - 'DoublePulsar'
+      - 'MS17-010'
+  filter_baseline:
+    dest_port: 445
+  condition: selection and filter_baseline
+falsepositives:
+  - Authorized penetration testing
+  - Vulnerability scanners (Nessus, Qualys) in scheduled scans
+level: high
+tags:
+  - attack.initial_access
+  - attack.t1190
+  - cve.2017.0144
+fields:
+  - src_ip
+  - dest_ip
+  - dest_port
+  - alert.signature
