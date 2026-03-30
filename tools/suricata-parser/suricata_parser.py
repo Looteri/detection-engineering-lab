@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 import argparse
 from collections import defaultdict
@@ -7,14 +8,20 @@ from pathlib import Path
  
 def load_alerts(eve_path: str) -> list[dict]:
     alerts = []
+    skipped = 0
     with open(eve_path, "r") as f:
         for line in f:
             try:
                 event = json.loads(line.strip())
                 if event.get("event_type") == "alert":
+                    if not event.get("src_ip") or not event.get("dest_ip"):
+                        skipped += 1
+                        continue
                     alerts.append(event)
             except json.JSONDecodeError:
                 continue
+    if skipped:
+        print(f"[*] Skipped {skipped} non-IP alert(s) (e.g. Ethertype unknown)")
     return alerts
  
  

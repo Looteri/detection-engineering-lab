@@ -1,9 +1,9 @@
 # Suricata Alert Report
 
-**Generated:** 2026-03-30 10:02:41  
+**Generated:** 2026-03-30 10:34:41  
 **Source:** `/var/log/suricata/eve.json`  
-**Total alerts:** 136  
-**Unique signatures:** 15  
+**Total alerts:** 69  
+**Unique signatures:** 14  
 
 ---
 
@@ -11,9 +11,8 @@
 
 | Signature | Count |
 |-----------|-------|
-| SURICATA Ethertype unknown | 69 |
 | ET SCAN Possible Nmap User-Agent Observed | 24 |
-| ET INFO Possible Kali Linux hostname in DHCP Request Packet | 20 |
+| ET INFO Possible Kali Linux hostname in DHCP Request Packet | 22 |
 | SURICATA Applayer Detect protocol only one direction | 4 |
 | SURICATA STREAM ESTABLISHED invalid ack | 3 |
 | SURICATA STREAM Packet with invalid ack | 3 |
@@ -30,37 +29,6 @@
 ---
 
 ## Alerts by Signature
-
-### SURICATA Ethertype unknown
-- **SID:** 2200121
-- **Category:** Generic Protocol Command Decode
-- **Severity:** 3
-- **Hit count:** 69
-
-| Timestamp | Source | Destination | Proto | Severity |
-|-----------|--------|-------------|-------|----------|
-| 2026-03-27 14:54:22 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-27 15:25:52 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-27 15:41:37 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:10:15 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:10:42 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:10:43 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:10:44 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:10:43 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:26:29 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:42:14 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:55:26 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:55:26 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:55:26 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:55:26 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 13:55:26 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 17:14:30 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 17:14:30 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 17:14:30 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 17:14:30 | N/A:N/A | N/A:N/A | N/A | 3 |
-| 2026-03-28 17:14:30 | N/A:N/A | N/A:N/A | N/A | 3 |
-
-> _49 additional events truncated._
 
 ### ET SCAN Possible Nmap User-Agent Observed
 - **SID:** 2024364
@@ -97,7 +65,7 @@
 - **SID:** 2022973
 - **Category:** Potential Corporate Privacy Violation
 - **Severity:** 1
-- **Hit count:** 20
+- **Hit count:** 22
 
 | Timestamp | Source | Destination | Proto | Severity |
 |-----------|--------|-------------|-------|----------|
@@ -121,6 +89,8 @@
 | 2026-03-30 09:20:30 | 192.168.232.128:68 | 192.168.232.254:67 | UDP | 1 |
 | 2026-03-30 09:35:30 | 192.168.232.128:68 | 192.168.232.254:67 | UDP | 1 |
 | 2026-03-30 09:50:30 | 192.168.232.128:68 | 192.168.232.254:67 | UDP | 1 |
+
+> _2 additional events truncated._
 
 ### SURICATA Applayer Detect protocol only one direction
 - **SID:** 2260002
