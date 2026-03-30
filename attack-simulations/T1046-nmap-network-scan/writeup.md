@@ -1,6 +1,6 @@
 # T1046 — Network Service Discovery (Nmap Scan Detection Gap Analysis)
 
-**Author:** [name or pseudonym]  
+**Author:** Looteri 
 **Date:** 2026-03-26  
 **Environment:** T-Pot (Suricata) + Kali Linux + Elastic Stack  
 **MITRE ATT&CK:** [T1046](https://attack.mitre.org/techniques/T1046/)  

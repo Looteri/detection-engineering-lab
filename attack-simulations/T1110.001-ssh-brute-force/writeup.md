@@ -1,6 +1,6 @@
 # T1110.001 — SSH Brute Force Detection
 
-**Author:** [name or pseudonym]  
+**Author:** Looteri 
 **Date:** 2026-03-25  
 **Environment:** T-Pot (Cowrie) + Kali Linux + Elastic Stack  
 **MITRE ATT&CK:** [T1110.001](https://attack.mitre.org/techniques/T1110/001/)  

@@ -1,6 +1,6 @@
 # T1190 — Exploit Public-Facing Application (EternalBlue / MS17-010)
 
-**Author:** [name or pseudonym]  
+**Author:** Looteri 
 **Date:** 2026-03-27  
 **Environment:** T-Pot (Dionaea + Suricata) + Kali Linux + Elastic Stack  
 **MITRE ATT&CK:** [T1190](https://attack.mitre.org/techniques/T1190/)  
