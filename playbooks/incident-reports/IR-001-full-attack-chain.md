@@ -118,17 +118,19 @@ backdoor trigger sequence.
 
 ## Detection Gap Summary
 
-| 	Phase 		  | Detected?| 		Gap 			|
-|-------------------------|----------|----------------------------------|
-| Recon (Nmap -sV)	  |  YES     | 		None 			|
-| EternalBlue probe	  |  YES     | 		None 			|
-| vsftpd backdoor trigger |  NO      | No ET rule for FTP `:)` pattern 	|
-| Shell activity	  |  NO      | No behavioral detection 		|
-| /etc/shadow access 	  |  NO      | No file access monitoring 	|
-| Exfiltration 		  |  NO      | No data loss detection 		|
+| 	Phase 		  | Detected?   | 			Detail 					|
+|-------------------------|-------------|---------------------------------------------------------------|
+| Recon (Nmap -sV) 	  |    YES 	| ET SCAN Nmap User-Agent 				 	|
+| EternalBlue probe 	  |    YES 	| ET EXPLOIT MS17-010 (x2) 					|
+| vsftpd backdoor trigger |    NO 	| FTP `:)` pattern not in ET ruleset 				|
+| vsftpd backdoor shell   |   PARTIAL 	| GPL ATTACK_RESPONSE port 6200 — detected AFTER shell spawned 	|
+| /etc/shadow access 	  |    NO 	| No file integrity monitoring 					|
+| Exfiltration 		  |    NO 	| No data loss detection 					|
 
-**3 of 6 phases undetected** — all post-exploitation activity
-operates below Suricata's default detection threshold.
+**4 of 6 phases detected** — however vsftpd detection is reactive,
+not preventive. Shell was already running when alert fired.
+Custom rule targeting FTP trigger pattern would shift detection
+left by approximately 30 seconds.
 
 ---
 
@@ -155,8 +157,10 @@ FROM logstash-*
 
 ## Recommendations
 
-1. **Add custom Suricata rule** for vsftpd backdoor trigger —
-   alert on FTP username containing `:)` pattern
+1. **Add custom Suricata rule** for vsftpd backdoor FTP trigger —
+   alert on `USER :)` pattern on port 21 to detect exploitation
+   before shell spawns. Current GPL rule (SID:2100498) fires only
+   after successful shell execution — too late for prevention.
 2. **Deploy file integrity monitoring** — `/etc/shadow` access
    should generate immediate critical alert
 3. **Implement network behavioral detection** — unexpected outbound
