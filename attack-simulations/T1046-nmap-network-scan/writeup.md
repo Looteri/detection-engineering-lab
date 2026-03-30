@@ -53,9 +53,9 @@ Immediately triggered Suricata's Nmap User-Agent signature.
 
 | 		Signature 			|     Count 	|
 |-----------------------------------------------|---------------|
-| 	SURICATA Ethertype unknown 		| 	5,586 	|
-| 	ET INFO Reserved Internal IP Traffic 	| 	278 	|
-| **ET SCAN Possible Nmap User-Agent Observed** |	**218**	|
+| 	SURICATA Ethertype unknown (null)	| 	7,308 	|
+| **ET SCAN Possible Nmap User-Agent Observed** |	**219**	|
+| ET SCAN Possible Nmap User-Agent Observed 	|	218	|
 | ET EXPLOIT Possible Dovecot CVE-2019-11500 	| 	10	|
 | 			Other 			| 	85	|
 
@@ -63,7 +63,7 @@ Immediately triggered Suricata's Nmap User-Agent signature.
 > aggressively enough to match exploit signatures — without any real
 > exploitation attempt.
 
-![scan1-result](screenshots/T1046-scan1-aggressive-result.png)
+![scan1-result](screenshots/T1046-scan1-aggressive-A-T4.png)
 
 ---
 

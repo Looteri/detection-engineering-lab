@@ -1,0 +1,39 @@
+title: SUID Binary Shell Spawn - Privilege Escalation via Nmap Interactive
+id: c5fc3984-1f4f-44b7-a0f3-5f920ec3fb0a
+status: experimental
+description: >
+  Detects privilege escalation via SUID nmap --interactive mode.
+  Nmap spawning a child shell process (sh/bash) indicates GTFOBins
+  abuse for local privilege escalation without external tools.
+references:
+  - https://attack.mitre.org/techniques/T1068/
+  - https://gtfobins.github.io/gtfobins/nmap/
+logsource:
+  product: linux
+  service: auditd
+detection:
+  selection:
+    type: 'EXECVE'
+    exe: '/usr/bin/nmap'
+    a0: '--interactive'
+  selection_shell:
+    type: 'EXECVE'
+    exe|endswith:
+      - '/bin/sh'
+      - '/bin/bash'
+    ppid|fieldref: selection.pid
+  condition: selection and selection_shell
+falsepositives:
+  - None expected in production — nmap interactive mode has no
+    legitimate administrative use case
+level: critical
+tags:
+  - attack.privilege_escalation
+  - attack.t1068
+  - attack.t1059.004
+  - attack.t1053.003
+fields:
+  - exe
+  - ppid
+  - uid
+  - euid
