@@ -1,0 +1,2 @@
+Parsing Sigma rules
+any where (alert.signature like~ ("*ETERNALBLUE*", "*DoublePulsar*", "*MS17-010*")) and dest_port:445

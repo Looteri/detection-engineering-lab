@@ -1,0 +1,2 @@
+Parsing Sigma rules
+event_type:alert AND (alert.signature:(*ET\ SCAN* OR *Behavioral\ Unusual\ Port* OR *Nmap*))

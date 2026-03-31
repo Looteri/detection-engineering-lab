@@ -7,7 +7,6 @@ description: >
   User-Agent signature detection.
 references:
   - https://attack.mitre.org/techniques/T1046/
-  - https://nmap.org/book/man-bypass-firewalls-ids.html
 logsource:
   product: suricata
   service: ids
@@ -18,8 +17,7 @@ detection:
       - 'ET SCAN'
       - 'Behavioral Unusual Port'
       - 'Nmap'
-  timeframe: 60s
-  condition: selection | count(dest_port) by src_ip > 15
+  condition: selection
 falsepositives:
   - Legitimate vulnerability scanners (Nessus, Qualys) in authorized scans
   - Network monitoring tools performing service discovery

@@ -1,0 +1,2 @@
+Parsing Sigma rules
+any where (type:"EXECVE" and exe:"/usr/bin/nmap" and a0:"--interactive") or (type:"EXECVE" and (exe like~ ("*/bin/sh", "*/bin/bash")))

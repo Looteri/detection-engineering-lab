@@ -1,0 +1,2 @@
+Parsing Sigma rules
+any where event_type:"alert" and (alert.signature like~ ("*ET SCAN*", "*Behavioral Unusual Port*", "*Nmap*"))

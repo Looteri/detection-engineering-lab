@@ -1,0 +1,2 @@
+Parsing Sigma rules
+(alert.signature:(*ETERNALBLUE* OR *DoublePulsar* OR *MS17\-010*)) AND dest_port:445

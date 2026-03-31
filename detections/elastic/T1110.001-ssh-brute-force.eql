@@ -1,0 +1,2 @@
+Parsing Sigma rules
+any where eventid:"cowrie.login.failed"

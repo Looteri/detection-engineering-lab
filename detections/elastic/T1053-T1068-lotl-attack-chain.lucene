@@ -1,0 +1,2 @@
+Parsing Sigma rules
+(type:EXECVE AND exe:\/usr\/bin\/nmap AND a0:\-\-interactive) OR (type:EXECVE AND (exe:(*\/bin\/sh OR *\/bin\/bash)))

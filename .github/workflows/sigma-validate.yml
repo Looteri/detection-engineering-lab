@@ -1,0 +1,24 @@
+name: Sigma Rule Validation
+
+on:
+  push:
+    paths:
+      - 'detections/sigma/**.yml'
+  pull_request:
+    paths:
+      - 'detections/sigma/**.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker compose -f tools/sigma-converter/docker-compose.yml build
+
+      - name: Run sigma conversion
+        run: docker compose -f tools/sigma-converter/docker-compose.yml up --exit-code-from sigma-converter
+
+      - name: Show converted rules
+        run: ls -la detections/elastic/
