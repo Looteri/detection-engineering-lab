@@ -12,3 +12,4 @@ RUN chmod +x convert_all.sh
 RUN mkdir -p /rules/elastic
 
 ENTRYPOINT ["./convert_all.sh"]
+ 
