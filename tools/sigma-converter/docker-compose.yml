@@ -1,5 +1,0 @@
-services:
-  sigma-converter:
-    build: .
-    volumes:
-      - /home/kali/Desktop/detection-engineering-lab/detections:/rules

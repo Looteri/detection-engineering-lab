@@ -5,7 +5,10 @@ WORKDIR /app
 RUN pip install sigma-cli && \
     sigma plugin install elasticsearch
 
-COPY convert_all.sh .
+COPY tools/sigma-converter/convert_all.sh .
+COPY detections/sigma /rules/sigma
+
 RUN chmod +x convert_all.sh
+RUN mkdir -p /rules/elastic
 
 ENTRYPOINT ["./convert_all.sh"]

@@ -1,9 +1,5 @@
-version: "3.8"
-
 services:
   sigma-converter:
-    build: ./docker/sigma-converter
+    build: .
     volumes:
-      - ./detections/sigma:/rules
-    profiles:
-      - tools
+      - ./detections/elastic:/rules/elastic
