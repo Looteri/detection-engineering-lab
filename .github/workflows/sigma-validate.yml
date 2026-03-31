@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'detections/sigma/**.yml'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'tools/sigma-converter/convert_all.sh'
   pull_request:
     paths:
       - 'detections/sigma/**.yml'
